@@ -19,12 +19,12 @@ export default function HajjInfographic() {
   return (
     <div className="flex flex-col lg:flex-row gap-8 relative">
       <div className="w-full lg:w-2/3 bg-gray-50 rounded-xl p-4 relative">
-        <svg viewBox="0 0 400 1400" className="w-full h-auto focus:outline-none" aria-label="Hajj locations map">
+        <svg viewBox="0 0 500 1350" className="w-full h-auto focus:outline-none" aria-label="Hajj locations map">
           {/* Background */}
-          <rect x="0" y="0" width="400" height="1400" fill="#f8fafc" rx="10" />
+          <rect x="0" y="0" width="500" height="1350" fill="#f8fafc" rx="10" />
 
-          {/* Timeline path */}
-          <path d="M200,50 L200,1350" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" />
+          {/* Timeline path - centered */}
+          <path d="M250,50 L250,1300" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" />
 
           {/* 1. Makkah - Ihram & Umrah */}
           <g
@@ -35,20 +35,34 @@ export default function HajjInfographic() {
             aria-label="Makkah - Ihram & Umrah"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("makkah_ihram")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="120" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="120" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Ihram
             </text>
+            <line x1="175" y1="120" x2="205" y2="120" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="120"
               r="40"
               fill={activeLocation === "makkah_ihram" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <rect x="180" y="100" width="40" height="40" fill="white" />
-            <rect x="185" y="105" width="30" height="30" fill="#64748b" />
+
+            {/* Kaaba cube */}
+            <g transform="translate(230, 100)">
+              {/* Base cube - white outline */}
+              <rect x="0" y="0" width="40" height="40" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Black cloth (Kiswah) */}
+              <rect x="5" y="5" width="30" height="30" fill="#64748b" />
+
+              {/* Gold band (Hizam) */}
+              <rect x="5" y="15" width="30" height="5" fill="#d4af37" />
+
+              {/* Door */}
+              <rect x="15" y="20" width="10" height="15" fill="#d4af37" />
+            </g>
           </g>
 
           {/* 2. Mina - First Day */}
@@ -60,20 +74,39 @@ export default function HajjInfographic() {
             aria-label="Mina - First Day"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("mina_first")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="220" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="220" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Mina
             </text>
+            <line x1="175" y1="220" x2="205" y2="220" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="220"
               r="40"
               fill={activeLocation === "mina_first" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <path d="M180,240 L200,200 L220,240 Z" fill="white" />
-            <path d="M185,235 L200,205 L215,235 Z" fill="#64748b" />
+
+            {/* Mina-style tent encampment */}
+            <g transform="translate(220, 190)">
+              {/* Large central tent */}
+              {/* Rectangular base */}
+              <rect x="15" y="35" width="30" height="20" fill="white" stroke="#64748b" strokeWidth="1" />
+              {/* Triangular roof */}
+              <path d="M15,35 L30,15 L45,35 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Tent entrance */}
+              <rect x="25" y="45" width="10" height="10" fill="#64748b" />
+
+              {/* Smaller tent on left */}
+              <rect x="0" y="40" width="20" height="15" fill="white" stroke="#64748b" strokeWidth="1" />
+              <path d="M0,40 L10,25 L20,40 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Smaller tent on right */}
+              <rect x="40" y="40" width="20" height="15" fill="white" stroke="#64748b" strokeWidth="1" />
+              <path d="M40,40 L50,25 L60,40 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+            </g>
           </g>
 
           {/* 3. Arafat */}
@@ -85,20 +118,58 @@ export default function HajjInfographic() {
             aria-label="Arafat - Day of Standing"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("arafat")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="340" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="340" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Arafat
             </text>
+            <line x1="175" y1="340" x2="205" y2="340" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="340"
               r="40"
               fill={activeLocation === "arafat" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <path d="M180,360 L200,320 L220,360 Z" fill="white" />
-            <path d="M185,355 L200,325 L215,355 Z" fill="#64748b" />
+
+            {/* Arafat - Prayer hands in supplication */}
+            <g transform="translate(220, 310) scale(2.5)">
+              {/* Left Hand */}
+              <path
+                d="M7 2C5.5 2 4 3.5 4 5c0 1.5 1 2.8 2.4 3.4l-.9 6.6c-.2 1.5.8 2.9 2.3 3.1h.2c1.5 0 2.8-1.2 3-2.7l.6-4.3"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Right Hand */}
+              <path
+                d="M17 2c1.5 0 3 1.5 3 3c0 1.5-1 2.8-2.4 3.4l.9 6.6c.2 1.5-.8 2.9-2.3 3.1h-.2c-1.5 0-2.8-1.2-3-2.7l-.6-4.3"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              {/* Palm Curves */}
+              <path
+                d="M6 8c1-1.5 3-1.5 4 0"
+                fill="none"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M18 8c-1-1.5-3-1.5-4 0"
+                fill="none"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </g>
           </g>
 
           {/* 4. Muzdalifah */}
@@ -110,22 +181,48 @@ export default function HajjInfographic() {
             aria-label="Muzdalifah - Overnight Stay"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("muzdalifah")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="460" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="460" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Muzdalifah
             </text>
+            <line x1="175" y1="460" x2="205" y2="460" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="460"
               r="40"
               fill={activeLocation === "muzdalifah" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <circle cx="200" cy="450" r="20" fill="white" />
-            <circle cx="200" cy="450" r="15" fill="#64748b" />
-            <circle cx="185" cy="470" r="6" fill="white" />
-            <circle cx="215" cy="470" r="6" fill="white" />
+
+            {/* Hand holding pebbles for Muzdalifah */}
+            <g transform="translate(230, 440)">
+              {/* Palm of hand */}
+              <path
+                d="M10,50 C5,45 5,35 5,30 C5,20 15,10 25,10 C35,10 45,20 45,30 C45,35 45,45 40,50 C35,55 15,55 10,50 Z"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1.5"
+              />
+
+              {/* Thumb */}
+              <path
+                d="M5,30 C5,25 0,20 0,15 C0,10 5,5 10,5 C15,5 15,10 15,15 L15,25"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1.5"
+              />
+
+              {/* Fingers */}
+              <path d="M15,10 L15,25 M25,5 L25,25 M35,5 L35,25 M45,15 L45,30" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Pebbles in hand */}
+              <circle cx="15" cy="35" r="4" fill="#64748b" />
+              <circle cx="25" cy="32" r="5" fill="#64748b" />
+              <circle cx="35" cy="35" r="4" fill="#64748b" />
+              <circle cx="22" cy="42" r="3" fill="#64748b" />
+              <circle cx="32" cy="42" r="3" fill="#64748b" />
+            </g>
           </g>
 
           {/* 5. Mina - Jamarat (First Stoning) */}
@@ -137,20 +234,34 @@ export default function HajjInfographic() {
             aria-label="Jamarat - First Stoning"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("jamarat_first")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="580" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="580" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Jamarat
             </text>
+            <line x1="175" y1="580" x2="205" y2="580" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="580"
               r="40"
               fill={activeLocation === "jamarat_first" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <rect x="190" y="550" width="20" height="60" fill="white" />
-            <rect x="195" y="555" width="10" height="50" fill="#64748b" />
+
+            {/* Three Jamarat pillars of different sizes */}
+            <g transform="translate(220, 550)">
+              {/* Small pillar (Jamarat al-Sughra) */}
+              <rect x="0" y="10" width="12" height="40" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="2" y="12" width="8" height="36" fill="#64748b" />
+
+              {/* Medium pillar (Jamarat al-Wusta) */}
+              <rect x="24" y="5" width="12" height="50" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="26" y="7" width="8" height="46" fill="#64748b" />
+
+              {/* Large pillar (Jamarat al-Aqabah) */}
+              <rect x="48" y="0" width="12" height="60" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="50" y="2" width="8" height="56" fill="#64748b" />
+            </g>
           </g>
 
           {/* 6. Sacrifice */}
@@ -162,20 +273,37 @@ export default function HajjInfographic() {
             aria-label="Sacrifice"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("sacrifice")}
           >
-            {/* Text label on the left - already one word */}
-            <text x="120" y="700" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="700" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Sacrifice
             </text>
+            <line x1="175" y1="700" x2="205" y2="700" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="700"
               r="40"
               fill={activeLocation === "sacrifice" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <path d="M180,710 L220,710 L220,690 L210,680 L190,680 L180,690 Z" fill="white" />
-            <path d="M185,705 L215,705 L215,690 L205,685 L195,685 L185,690 Z" fill="#64748b" />
+
+            {/* Knife icon for sacrifice */}
+            <g transform="translate(225, 680)">
+              {/* Knife blade */}
+              <path d="M10,15 L40,45 L50,35 L20,5 Z" fill="white" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Knife handle */}
+              <rect x="5" y="10" width="10" height="30" rx="2" fill="#64748b" />
+
+              {/* Knife edge detail */}
+              <line x1="20" y1="5" x2="50" y2="35" stroke="white" strokeWidth="1" />
+
+              {/* Knife handle detail */}
+              <line x1="7" y1="15" x2="13" y2="15" stroke="white" strokeWidth="1" />
+              <line x1="7" y1="20" x2="13" y2="20" stroke="white" strokeWidth="1" />
+              <line x1="7" y1="25" x2="13" y2="25" stroke="white" strokeWidth="1" />
+              <line x1="7" y1="30" x2="13" y2="30" stroke="white" strokeWidth="1" />
+            </g>
           </g>
 
           {/* 7. Shaving/Trimming Hair */}
@@ -187,32 +315,54 @@ export default function HajjInfographic() {
             aria-label="Shaving or Trimming Hair"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("shaving")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="820" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="820" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Shaving
             </text>
+            <line x1="175" y1="820" x2="205" y2="820" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="820"
               r="40"
               fill={activeLocation === "shaving" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <path
-              d="M180,820 C180,810 190,805 200,805 C210,805 220,810 220,820"
-              stroke="white"
-              strokeWidth="8"
-              fill="none"
-            />
-            <path
-              d="M180,820 C180,810 190,805 200,805 C210,805 220,810 220,820"
-              stroke="#64748b"
-              strokeWidth="4"
-              fill="none"
-            />
-            <path d="M185,825 L195,815 M205,815 L215,825" stroke="white" strokeWidth="8" />
-            <path d="M185,825 L195,815 M205,815 L215,825" stroke="#64748b" strokeWidth="4" />
+
+            {/* Bald head icon for shaving */}
+            <g transform="translate(225, 790)">
+              {/* Bald head - side profile */}
+              <path
+                d="M15,60 C5,60 0,50 0,40 C0,25 10,10 25,10 C40,10 50,20 50,35 C50,45 45,55 35,60 L15,60 Z"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1.5"
+              />
+
+              {/* Ear */}
+              <path
+                d="M15,40 C15,35 10,35 10,40 C10,45 15,50 20,45"
+                fill="white"
+                stroke="#64748b"
+                strokeWidth="1.5"
+                fillRule="evenodd"
+              />
+
+              {/* Eye */}
+              <ellipse cx="35" cy="30" rx="3" ry="4" fill="#64748b" />
+
+              {/* Eyebrow */}
+              <path d="M30,25 C35,20 40,20 45,25" fill="none" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Nose */}
+              <path d="M45,30 L50,35 L45,40" fill="none" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Mouth */}
+              <path d="M40,45 C42,47 45,47 47,45" fill="none" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Neck */}
+              <path d="M15,60 L15,70 L30,70 L35,60" fill="white" stroke="#64748b" strokeWidth="1.5" />
+            </g>
           </g>
 
           {/* 8. Makkah - Tawaf Al-Ifadah */}
@@ -224,21 +374,37 @@ export default function HajjInfographic() {
             aria-label="Makkah - Tawaf Al-Ifadah"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("tawaf_ifadah")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="940" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="940" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Tawaf
             </text>
+            <line x1="175" y1="940" x2="205" y2="940" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="940"
               r="40"
               fill={activeLocation === "tawaf_ifadah" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <rect x="180" y="920" width="40" height="40" fill="white" />
-            <rect x="185" y="925" width="30" height="30" fill="#64748b" />
-            <path d="M200,940 m-12,0 a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0" fill="none" stroke="white" strokeWidth="3" />
+
+            {/* Kaaba cube with circular path */}
+            <g transform="translate(230, 920)">
+              {/* Circular path around Kaaba */}
+              <circle cx="20" cy="20" r="30" fill="none" stroke="white" strokeWidth="3" />
+
+              {/* Base cube - white outline */}
+              <rect x="0" y="0" width="40" height="40" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Black cloth (Kiswah) */}
+              <rect x="5" y="5" width="30" height="30" fill="#64748b" />
+
+              {/* Gold band (Hizam) */}
+              <rect x="5" y="15" width="30" height="5" fill="#d4af37" />
+
+              {/* Door */}
+              <rect x="15" y="20" width="10" height="15" fill="#d4af37" />
+            </g>
           </g>
 
           {/* 9. Mina - Days of Tashreeq */}
@@ -250,20 +416,39 @@ export default function HajjInfographic() {
             aria-label="Mina - Days of Tashreeq"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("mina_tashreeq")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="1060" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="1060" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Tashreeq
             </text>
+            <line x1="175" y1="1060" x2="205" y2="1060" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="1060"
               r="40"
               fill={activeLocation === "mina_tashreeq" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <path d="M180,1080 L200,1040 L220,1080 Z" fill="white" />
-            <path d="M185,1075 L200,1045 L215,1075 Z" fill="#64748b" />
+
+            {/* Mina-style tent encampment */}
+            <g transform="translate(220, 1030)">
+              {/* Large central tent */}
+              {/* Rectangular base */}
+              <rect x="15" y="35" width="30" height="20" fill="white" stroke="#64748b" strokeWidth="1" />
+              {/* Triangular roof */}
+              <path d="M15,35 L30,15 L45,35 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Tent entrance */}
+              <rect x="25" y="45" width="10" height="10" fill="#64748b" />
+
+              {/* Smaller tent on left */}
+              <rect x="0" y="40" width="20" height="15" fill="white" stroke="#64748b" strokeWidth="1" />
+              <path d="M0,40 L10,25 L20,40 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Smaller tent on right */}
+              <rect x="40" y="40" width="20" height="15" fill="white" stroke="#64748b" strokeWidth="1" />
+              <path d="M40,40 L50,25 L60,40 Z" fill="white" stroke="#64748b" strokeWidth="1" />
+            </g>
           </g>
 
           {/* 10. Jamarat - Final Stoning */}
@@ -275,22 +460,39 @@ export default function HajjInfographic() {
             aria-label="Jamarat - Final Stoning"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("jamarat_final")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="1180" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="1180" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Stoning
             </text>
+            <line x1="175" y1="1180" x2="205" y2="1180" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="1180"
               r="40"
               fill={activeLocation === "jamarat_final" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <rect x="180" y="1150" width="40" height="50" fill="white" />
-            <rect x="185" y="1155" width="10" height="40" fill="#64748b" />
-            <rect x="195" y="1160" width="10" height="35" fill="#64748b" />
-            <rect x="205" y="1155" width="10" height="40" fill="#64748b" />
+
+            {/* Three Jamarat pillars with pebbles being thrown */}
+            <g transform="translate(220, 1150)">
+              {/* Small pillar (Jamarat al-Sughra) */}
+              <rect x="0" y="10" width="12" height="40" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="2" y="12" width="8" height="36" fill="#64748b" />
+
+              {/* Medium pillar (Jamarat al-Wusta) */}
+              <rect x="24" y="5" width="12" height="50" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="26" y="7" width="8" height="46" fill="#64748b" />
+
+              {/* Large pillar (Jamarat al-Aqabah) */}
+              <rect x="48" y="0" width="12" height="60" fill="white" stroke="#64748b" strokeWidth="1" />
+              <rect x="50" y="2" width="8" height="56" fill="#64748b" />
+
+              {/* Flying pebbles */}
+              <circle cx="20" cy="25" r="2" fill="#64748b" />
+              <circle cx="30" cy="15" r="2" fill="#64748b" />
+              <circle cx="40" cy="30" r="2" fill="#64748b" />
+            </g>
           </g>
 
           {/* 11. Makkah - Tawaf Al-Wida (Farewell) */}
@@ -302,37 +504,94 @@ export default function HajjInfographic() {
             aria-label="Makkah - Tawaf Al-Wida (Farewell)"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("tawaf_wida")}
           >
-            {/* Text label on the left - simplified */}
-            <text x="120" y="1300" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
+            {/* Text label with connecting line */}
+            <text x="170" y="1300" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Farewell
             </text>
+            <line x1="175" y1="1300" x2="205" y2="1300" stroke="#94a3b8" strokeWidth="1.5" />
 
             <circle
-              cx="200"
+              cx="250"
               cy="1300"
               r="40"
               fill={activeLocation === "tawaf_wida" ? "#4ade80" : "#94a3b8"}
               className="transition-colors duration-300"
             />
-            <rect x="180" y="1280" width="40" height="40" fill="white" />
-            <rect x="185" y="1285" width="30" height="30" fill="#64748b" />
-            <path
-              d="M200,1300 m-12,0 a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0"
-              fill="none"
-              stroke="white"
-              strokeWidth="3"
-              strokeDasharray="5,3"
-            />
+
+            {/* Kaaba cube with dashed circular path */}
+            <g transform="translate(230, 1280)">
+              {/* Dashed circular path around Kaaba */}
+              <circle cx="20" cy="20" r="30" fill="none" stroke="white" strokeWidth="3" strokeDasharray="5,3" />
+
+              {/* Base cube - white outline */}
+              <rect x="0" y="0" width="40" height="40" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Black cloth (Kiswah) */}
+              <rect x="5" y="5" width="30" height="30" fill="#64748b" />
+
+              {/* Gold band (Hizam) */}
+              <rect x="5" y="15" width="30" height="5" fill="#d4af37" />
+
+              {/* Door */}
+              <rect x="15" y="20" width="10" height="15" fill="#d4af37" />
+            </g>
           </g>
 
-          {/* Legend */}
-          <rect x="20" y="1380" width="360" height="60" fill="white" rx="5" stroke="#e2e8f0" />
-          <text x="30" y="1405" fontSize="14" fontWeight="bold">
-            Hajj Tamattu
+          {/* Right side labels for balance */}
+          <text x="330" y="120" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            مكة - الإحرام
           </text>
-          <text x="30" y="1425" fontSize="12">
-            The most common type of Hajj - Umrah then Hajj with a break in between
+          <line x1="325" y1="120" x2="295" y2="120" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="220" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            منى
           </text>
+          <line x1="325" y1="220" x2="295" y2="220" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="340" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            عرفات
+          </text>
+          <line x1="325" y1="340" x2="295" y2="340" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="460" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            مزدلفة
+          </text>
+          <line x1="325" y1="460" x2="295" y2="460" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="580" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            الجمرات
+          </text>
+          <line x1="325" y1="580" x2="295" y2="580" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="700" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            الذبح
+          </text>
+          <line x1="325" y1="700" x2="295" y2="700" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="820" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            الحلق
+          </text>
+          <line x1="325" y1="820" x2="295" y2="820" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="940" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            طواف الإفاضة
+          </text>
+          <line x1="325" y1="940" x2="295" y2="940" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="1060" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            أيام التشريق
+          </text>
+          <line x1="325" y1="1060" x2="295" y2="1060" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="1180" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            الرمي
+          </text>
+          <line x1="325" y1="1180" x2="295" y2="1180" stroke="#94a3b8" strokeWidth="1.5" />
+
+          <text x="330" y="1300" textAnchor="start" fill="#334155" fontSize="14" fontWeight="bold">
+            طواف الوداع
+          </text>
+          <line x1="325" y1="1300" x2="295" y2="1300" stroke="#94a3b8" strokeWidth="1.5" />
         </svg>
 
         {activeLocation && (
@@ -350,14 +609,20 @@ export default function HajjInfographic() {
         {activeLocation ? (
           <HajjInfoPanel locationData={hajjData[activeLocation]} />
         ) : (
-          <div className="p-6 h-full flex flex-col items-center justify-center text-center">
-            <h2 className="text-2xl font-bold mb-4">Hajj Tamattu Guide</h2>
-            <p className="text-gray-600 mb-4">
-              Click on any location on the map to learn about the rituals performed there during Hajj.
-            </p>
-            <p className="text-gray-600">
-              Hajj Tamattu is the most common type of Hajj, where pilgrims perform Umrah first, then Hajj.
-            </p>
+          <div className="h-full overflow-y-auto">
+            <div className="bg-emerald-600 p-6 text-white">
+              <h2 className="text-2xl font-bold">Hajj Tamattu Guide</h2>
+              <p className="text-emerald-100 mt-2">The most common type of Hajj</p>
+            </div>
+            <div className="p-6">
+              <p className="text-gray-700 mb-4">
+                Click on any location on the map to learn about the rituals performed during Hajj.
+              </p>
+              <p className="text-gray-700">
+                Hajj Tamattu is where pilgrims perform Umrah first, then Hajj with a break in between. This is the most
+                common type of Hajj performed today.
+              </p>
+            </div>
           </div>
         )}
       </div>
