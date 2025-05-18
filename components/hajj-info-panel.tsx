@@ -11,6 +11,12 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
       <div className="bg-emerald-600 p-6 text-white">
         <h2 className="text-2xl font-bold">{locationData.name}</h2>
         <p className="text-emerald-100">{locationData.arabicName}</p>
+        {locationData.timing && (
+          <p className="text-emerald-100 mt-2 flex items-center gap-2">
+            <Calendar size={16} />
+            <span>{locationData.timing}</span>
+          </p>
+        )}
       </div>
 
       <div className="p-6">
@@ -18,13 +24,6 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
           <MapPin size={18} />
           <span>{locationData.description}</span>
         </div>
-
-        {locationData.timing && (
-          <div className="flex items-center gap-2 text-gray-600 mb-4">
-            <Calendar size={18} />
-            <span>{locationData.timing}</span>
-          </div>
-        )}
 
         {locationData.duration && (
           <div className="flex items-center gap-2 text-gray-600 mb-4">

@@ -19,6 +19,12 @@ body {
   }
 }
 
+/* Remove focus outlines from SVG elements */
+svg:focus,
+svg *:focus {
+  outline: none !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
