@@ -35,9 +35,9 @@ export default function HajjInfographic() {
             aria-label="Makkah - Ihram & Umrah"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("makkah_ihram")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="120" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Ihram & Umrah
+              Ihram
             </text>
 
             <circle
@@ -60,9 +60,9 @@ export default function HajjInfographic() {
             aria-label="Mina - First Day"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("mina_first")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="220" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Mina - First Day
+              Mina
             </text>
 
             <circle
@@ -85,9 +85,9 @@ export default function HajjInfographic() {
             aria-label="Arafat - Day of Standing"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("arafat")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="340" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Arafat - Standing
+              Arafat
             </text>
 
             <circle
@@ -110,9 +110,9 @@ export default function HajjInfographic() {
             aria-label="Muzdalifah - Overnight Stay"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("muzdalifah")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="460" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Muzdalifah - Night
+              Muzdalifah
             </text>
 
             <circle
@@ -137,9 +137,9 @@ export default function HajjInfographic() {
             aria-label="Jamarat - First Stoning"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("jamarat_first")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="580" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Jamarat - Stoning
+              Jamarat
             </text>
 
             <circle
@@ -162,7 +162,7 @@ export default function HajjInfographic() {
             aria-label="Sacrifice"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("sacrifice")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - already one word */}
             <text x="120" y="700" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
               Sacrifice
             </text>
@@ -187,9 +187,9 @@ export default function HajjInfographic() {
             aria-label="Shaving or Trimming Hair"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("shaving")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="820" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Shaving/Trimming
+              Shaving
             </text>
 
             <circle
@@ -224,9 +224,9 @@ export default function HajjInfographic() {
             aria-label="Makkah - Tawaf Al-Ifadah"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("tawaf_ifadah")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="940" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Tawaf Al-Ifadah
+              Tawaf
             </text>
 
             <circle
@@ -250,9 +250,9 @@ export default function HajjInfographic() {
             aria-label="Mina - Days of Tashreeq"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("mina_tashreeq")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="1060" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Mina - Tashreeq Days
+              Tashreeq
             </text>
 
             <circle
@@ -275,9 +275,9 @@ export default function HajjInfographic() {
             aria-label="Jamarat - Final Stoning"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("jamarat_final")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="1180" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Jamarat - All Pillars
+              Stoning
             </text>
 
             <circle
@@ -302,9 +302,9 @@ export default function HajjInfographic() {
             aria-label="Makkah - Tawaf Al-Wida (Farewell)"
             onKeyDown={(e) => e.key === "Enter" && handleLocationClick("tawaf_wida")}
           >
-            {/* Text label on the left */}
+            {/* Text label on the left - simplified */}
             <text x="120" y="1300" textAnchor="end" fill="#334155" fontSize="14" fontWeight="bold">
-              Tawaf Al-Wida
+              Farewell
             </text>
 
             <circle
