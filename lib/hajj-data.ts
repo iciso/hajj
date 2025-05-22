@@ -468,6 +468,7 @@ export const hajjData: HajjData = {
     arabicName: "طواف الإفاضة",
     description: "The obligatory circumambulation of the Kaaba after Arafat",
     timing: "10th of Dhul-Hijjah (after shaving/trimming)",
+    duration: "Approximately one hour, but can take longer during crowded periods",
     significance: "This is an essential pillar of Hajj without which the Hajj is invalid.",
     rituals: [
       "Circumambulating the Kaaba seven times",
@@ -479,9 +480,60 @@ export const hajjData: HajjData = {
       "The 10th day is very busy, so you may delay this Tawaf until the 11th or 12th if needed",
       "Wear comfortable shoes as you'll be walking on marble floors",
       "Stay hydrated with Zamzam water available throughout the Haram",
+      "If possible, try to touch or kiss the Black Stone (Hajar al-Aswad), but if crowded, simply point to it and say 'Allahu Akbar'",
+      "Women experiencing menstruation should delay this Tawaf until they are pure, as it cannot be omitted",
     ],
     historicalContext:
-      "Tawaf Al-Ifadah is also known as Tawaf Az-Ziyarah (the visit) because pilgrims 'visit' the Kaaba after standing at Arafat.",
+      "Tawaf Al-Ifadah is also known as Tawaf Az-Ziyarah (the visit) because pilgrims 'visit' the Kaaba after standing at Arafat. It is one of the most ancient rituals of Hajj, dating back to Prophet Ibrahim's time.",
+    rationale:
+      "Tawaf Al-Ifadah represents the pilgrim's return to the House of Allah after the spiritual journey at Arafat and Muzdalifah. It symbolizes the centrality of Allah in the believer's life, as all movements revolve around His House. The seven circuits represent the completeness of devotion, while the counterclockwise direction aligns with the cosmic order of the universe. This Tawaf marks the transition from the state of Ihram to normal life, though some restrictions remain until all rituals are completed.",
+    rukn: [
+      "Performing seven complete circuits around the Kaaba",
+      "Starting each circuit from the Black Stone (or its alignment)",
+      "Having the Kaaba on one's left throughout the Tawaf",
+      "Being in a state of ritual purity (wudu)",
+      "Covering the awrah (parts of the body that must be covered in Islam)",
+      "Performing the Tawaf within the boundaries of the Masjid al-Haram",
+    ],
+    nullifiers: [
+      "Breaking wudu during Tawaf (must restart from where wudu was broken after performing ablution)",
+      "Skipping any part of a circuit or performing fewer than seven circuits",
+      "Performing Tawaf while in a state of major impurity (janabah) or menstruation",
+      "Walking inside the Hijr Ismail area (the semi-circular wall near the Kaaba) during Tawaf",
+      "Not completing all seven circuits",
+    ],
+    compensation: [
+      "For not performing Tawaf Al-Ifadah at all: The Hajj is invalid and must be repeated",
+      "For performing fewer than seven circuits: The missing circuits must be completed",
+      "For performing Tawaf without wudu: The Tawaf must be repeated",
+      "For women who cannot perform Tawaf due to menstruation: They must wait until they are pure, as this Tawaf cannot be compensated for",
+    ],
+    duas: [
+      {
+        text: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+        translation:
+          "Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.",
+        source: "Quran 2:201 - Recited between the Yemeni Corner and the Black Stone",
+      },
+      {
+        text: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ",
+        translation: "O Allah, I ask You for forgiveness and well-being in this world and the Hereafter.",
+        source: "Based on the practice of the Prophet (PBUH)",
+      },
+      {
+        text: "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+        translation:
+          "Glory be to Allah, and praise be to Allah, and there is no deity except Allah, and Allah is the Greatest, and there is no power and no strength except with Allah.",
+        source: "Commonly recited during Tawaf",
+      },
+    ],
+    authenticSources: [
+      "Quran 22:29: 'Then let them complete the prescribed duties for them, and perform their vows, and circumambulate the Ancient House'",
+      "Sahih Bukhari 1644: The Prophet (PBUH) performed Tawaf Al-Ifadah on the Day of Sacrifice",
+      "Sahih Muslim 1211: Description of the Prophet's (PBUH) Tawaf during Hajj",
+      "Sahih Bukhari 1755: The Prophet (PBUH) said, 'The circumambulation around the House is like prayer, except that you are allowed to speak during it'",
+      "Sahih Muslim 1218: The Prophet (PBUH) said, 'Take from me your rituals of Hajj'",
+    ],
   },
   mina_tashreeq: {
     name: "Mina - Days of Tashreeq",
@@ -489,38 +541,146 @@ export const hajjData: HajjData = {
     description: "Staying in Mina for the final days of Hajj",
     timing: "11th, 12th, and optionally 13th of Dhul-Hijjah",
     duration: "Two or three days",
+    significance: "These days complete the Hajj rituals and commemorate the final days of Prophet Ibrahim's trial.",
     rituals: [
       "Staying in Mina",
       "Stoning all three Jamarat pillars each day after Dhuhr prayer",
       "Performing daily prayers",
+      "Remembering Allah (dhikr) and making supplications",
     ],
     tips: [
       "Stone the pillars in order: small, medium, then large",
-      "Those in a hurry can leave after stoning on the 12th before sunset",
-      "Those staying for the 13th must stone all pillars again on that day",
+      "Those in a hurry can leave after stoning on the 12th before sunset (Nafr Awwal)",
+      "Those staying for the 13th must stone all pillars again on that day (Nafr Thani)",
+      "Conserve energy as these days involve multiple trips to the Jamarat",
+      "Stay hydrated and protect yourself from the sun",
+      "Use the time in Mina for reflection, reading Quran, and making dua",
     ],
     historicalContext:
-      "These days are called Tashreeq because in pre-Islamic times, the Arabs would dry strips of sacrificial meat in the sun during these days.",
+      "These days are called Tashreeq because in pre-Islamic times, the Arabs would dry strips of sacrificial meat in the sun during these days. The word 'Tashreeq' comes from 'sharq' meaning 'east' or 'sunrise', as the meat was dried in the eastern sun.",
+    rationale:
+      "The Days of Tashreeq represent the culmination of the Hajj journey. They provide time for reflection on the spiritual experiences of Hajj and for gradually transitioning back to normal life. Staying in Mina during these days allows pilgrims to continue their spiritual focus away from worldly distractions. The repeated stoning of all three pillars symbolizes the ongoing struggle against evil and temptation in one's life, emphasizing that resisting Satan is not a one-time event but a continuous process.",
+    rukn: [
+      "Staying in Mina during the nights of the 11th and 12th (and 13th for those who choose to stay)",
+      "Stoning all three Jamarat pillars on each day after Dhuhr prayer",
+      "Maintaining the remaining restrictions of Ihram until completion of all rituals",
+      "For those choosing early departure (Nafr Awwal): Leaving Mina before sunset on the 12th",
+    ],
+    nullifiers: [
+      "Not stoning the Jamarat pillars on any of the required days",
+      "Leaving Mina before stoning on the 12th",
+      "For those who stay past sunset on the 12th: Not completing the stoning on the 13th",
+      "Stoning before Dhuhr prayer without a valid excuse",
+    ],
+    compensation: [
+      "For missing the stoning of any pillar: A sacrifice (dam) is required for each day missed",
+      "For throwing fewer than seven pebbles at any pillar: One poor person must be fed for each missing pebble",
+      "For leaving Mina without stoning on the 12th: A sacrifice (dam) is required",
+      "For the elderly or sick who cannot perform the ritual: They can appoint someone to stone on their behalf",
+    ],
+    duas: [
+      {
+        text: "اللَّهُ أَكْبَرُ، اللَّهُمَّ اجْعَلْهُ حَجًّا مَبْرُورًا وَذَنْبًا مَغْفُورًا",
+        translation: "Allah is the Greatest. O Allah, make this an accepted Hajj and forgive my sins.",
+        source: "Based on the practice of the Prophet (PBUH)",
+      },
+      {
+        text: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+        translation:
+          "Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.",
+        source: "Quran 2:201 - A dua frequently recited by the Prophet (PBUH) during Hajj",
+      },
+      {
+        text: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ الشَّيْطَانِ الرَّجِيمِ وَمِنْ شَرِّ كُلِّ سُوءٍ",
+        translation: "O Allah, I seek refuge in You from Satan the accursed and from every evil.",
+        source: "Based on various authentic supplications",
+      },
+    ],
+    authenticSources: [
+      "Quran 2:203: 'And remember Allah during the appointed days. But whoever hastens to leave in two days, there is no sin upon him; and whoever delays, there is no sin upon him - for him who fears Allah'",
+      "Sahih Bukhari 1751: The Prophet (PBUH) stoned the Jamarat after the sun had passed its zenith",
+      "Sahih Muslim 1306: Description of the Prophet's (PBUH) stoning during the Days of Tashreeq",
+      "Sunan Abu Dawud 1973: The Prophet (PBUH) permitted shepherds to stone one day and leave the next",
+      "Sahih Bukhari 1742: The Prophet (PBUH) said, 'The days of Tashreeq are days of eating, drinking, and remembrance of Allah'",
+    ],
   },
   jamarat_final: {
     name: "Jamarat - Final Stoning",
     arabicName: "الجمرات - الرمي الأخير",
     description: "Stoning all three pillars on the 11th, 12th, and optionally 13th days",
     timing: "11th, 12th, and optionally 13th of Dhul-Hijjah (after Dhuhr prayer)",
+    duration: "Approximately 1-2 hours each day, depending on crowds",
+    significance:
+      "Represents the continued rejection of evil and temptation, and the commitment to follow the path of righteousness.",
     rituals: [
       "Stoning the small pillar (Jamarat al-Sughra) with seven pebbles",
       "Stoning the medium pillar (Jamarat al-Wusta) with seven pebbles",
       "Stoning the large pillar (Jamarat al-Aqabah) with seven pebbles",
       "Reciting takbir (Allahu Akbar) with each throw",
+      "Making dua after stoning the small and medium pillars",
     ],
     tips: [
-      "Start after Dhuhr prayer and before Maghrib",
+      "Start after Dhuhr prayer (midday) and before Maghrib (sunset)",
       "Stone in the correct order: small, medium, then large",
       "Make dua after stoning the small and medium pillars, but not after the large one",
-      "Those leaving on the 12th must depart Mina before sunset",
+      "Those leaving on the 12th (Nafr Awwal) must depart Mina before sunset",
+      "Try to avoid peak times to reduce crowding",
+      "Carry your pebbles in a small bag or container",
+      "The elderly, sick, or weak can appoint someone to stone on their behalf",
     ],
     historicalContext:
-      "The three pillars represent the three locations where Satan tried to tempt Prophet Ibrahim to disobey Allah's command.",
+      "The three pillars represent the three locations where Satan tried to tempt Prophet Ibrahim to disobey Allah's command to sacrifice his son. Each day of stoning reinforces the rejection of Satan and evil, symbolizing the ongoing spiritual struggle (jihad) against temptation.",
+    rationale:
+      "The final stoning ritual differs from the first day's stoning in that all three pillars are stoned, not just the large one. This represents a more comprehensive rejection of evil in all its forms. The repetition over multiple days emphasizes that the struggle against evil is continuous throughout life. Making dua after the first two pillars but not the third symbolizes that after completely rejecting Satan (at the third pillar), one should move forward rather than lingering in conversation with or about evil.",
+    rukn: [
+      "Stoning all three Jamarat pillars on each day (11th, 12th, and 13th if staying)",
+      "Throwing seven pebbles at each pillar",
+      "Stoning after Dhuhr prayer (midday)",
+      "Stoning in the correct order: small, medium, then large",
+      "Using proper pebbles (small stones) collected from Muzdalifah or Mina",
+      "Throwing the pebbles one by one",
+    ],
+    nullifiers: [
+      "Not performing the stoning on any required day",
+      "Stoning before Dhuhr prayer without a valid excuse",
+      "Stoning in the incorrect order",
+      "Using improper objects instead of pebbles",
+      "Throwing all seven pebbles at once",
+      "Throwing fewer than seven pebbles at any pillar",
+      "Not hitting the pillar or its base with the pebbles",
+    ],
+    compensation: [
+      "For missing the stoning of any pillar: A sacrifice (dam) is required for each day missed",
+      "For throwing fewer than seven pebbles at any pillar: One poor person must be fed for each missing pebble",
+      "For stoning before Dhuhr without valid excuse: A sacrifice (dam) is required according to some scholars",
+      "For stoning in the incorrect order: The stoning should be repeated in the correct order if possible",
+      "For the elderly or sick who cannot perform the ritual: They can appoint someone to stone on their behalf",
+    ],
+    duas: [
+      {
+        text: "اللَّهُ أَكْبَرُ، اللَّهُمَّ اجْعَلْهُ حَجًّا مَبْرُورًا وَذَنْبًا مَغْفُورًا",
+        translation: "Allah is the Greatest. O Allah, make this an accepted Hajj and forgive my sins.",
+        source: "Based on the practice of the Prophet (PBUH)",
+      },
+      {
+        text: "اللَّهُمَّ إِيمَانًا بِكَ وَتَصْدِيقًا بِكِتَابِكَ وَاتِّبَاعًا لِسُنَّةِ نَبِيِّكَ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ",
+        translation:
+          "O Allah, (I do this) believing in You, affirming the truth of Your Book, and following the Sunnah of Your Prophet Muhammad (peace be upon him).",
+        source: "Narrated in various collections of Hajj rituals",
+      },
+      {
+        text: "اللَّهُمَّ اجْعَلْهُ حَجًّا مَبْرُورًا وَسَعْيًا مَشْكُورًا وَذَنْبًا مَغْفُورًا",
+        translation: "O Allah, make this an accepted Hajj, an appreciated effort, and a forgiven sin.",
+        source: "Based on authentic supplications during Hajj",
+      },
+    ],
+    authenticSources: [
+      "Quran 2:203: 'And remember Allah during the appointed days. But whoever hastens to leave in two days, there is no sin upon him; and whoever delays, there is no sin upon him - for him who fears Allah'",
+      "Sahih Bukhari 1751: The Prophet (PBUH) stoned the Jamarat after the sun had passed its zenith",
+      "Sahih Muslim 1306: Description of the Prophet's (PBUH) stoning during the Days of Tashreeq",
+      "Sunan Abu Dawud 1975: The Prophet (PBUH) made dua after stoning the first and second Jamarat but not after the third",
+      "Sahih Bukhari 1753: The Prophet (PBUH) said, 'The stoning of the Jamarat and Sa'i between Safa and Marwa have been established for the remembrance of Allah'",
+    ],
   },
   tawaf_wida: {
     name: "Tawaf Al-Wida (Farewell Tawaf)",
