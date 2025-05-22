@@ -687,19 +687,77 @@ export const hajjData: HajjData = {
     arabicName: "طواف الوداع",
     description: "The final circumambulation of the Kaaba before leaving Makkah",
     timing: "Before departing from Makkah (after completing all Hajj rituals)",
-    significance: "This is the final act of Hajj, bidding farewell to the Kaaba.",
+    duration: "Approximately one hour, but can take longer during crowded periods",
+    significance:
+      "This is the final act of Hajj, bidding farewell to the Kaaba and completing the pilgrimage with a gesture of respect and devotion to Allah's House.",
     rituals: [
       "Circumambulating the Kaaba seven times",
+      "Praying two rakats behind Maqam Ibrahim if possible",
       "Making final supplications",
+      "Drinking Zamzam water as a final blessing",
       "Departing from Makkah with the Kaaba as the last thing visited",
     ],
     tips: [
-      "Perform this Tawaf just before leaving Makkah",
+      "Perform this Tawaf just before leaving Makkah, with no significant delay afterward",
       "Women in menstruation are exempted from this Tawaf",
-      "Try to leave Makkah directly after this Tawaf without delay",
+      "Try to leave Makkah directly after this Tawaf without engaging in shopping or other activities",
       "Make heartfelt dua as this may be your last visit to the Kaaba",
+      "If possible, exit from Bab Al-Wada (Gate of Farewell)",
+      "Take a final drink of Zamzam water to carry its blessing home",
+      "Many pilgrims become emotional during this Tawaf, so prepare yourself spiritually",
     ],
     historicalContext:
-      "Prophet Muhammad (PBUH) instructed that the last act a pilgrim should perform in Makkah is Tawaf around the Kaaba, emphasizing its importance as a farewell ritual.",
+      "Prophet Muhammad (PBUH) instructed that the last act a pilgrim should perform in Makkah is Tawaf around the Kaaba, emphasizing its importance as a farewell ritual. Ibn Abbas reported that people used to leave Makkah in all directions until the Prophet (PBUH) commanded that no one should depart until performing a final Tawaf of the Kaaba.",
+    rationale:
+      "Tawaf Al-Wida symbolizes the completion of the pilgrim's spiritual journey and serves as a final expression of love and devotion to Allah's House. It represents the pilgrim's reluctance to leave the sacred precincts and their hope to return again. This farewell circumambulation allows pilgrims to carry the spiritual energy of the Kaaba back to their homes and communities. It also emphasizes that the relationship with Allah's House is not severed by physical departure but continues in the heart of the believer.",
+    rukn: [
+      "Performing seven complete circuits around the Kaaba",
+      "Having the intention (niyyah) that this is the Farewell Tawaf",
+      "Performing the Tawaf after completing all other Hajj rituals",
+      "Being in a state of ritual purity (wudu)",
+      "Covering the awrah (parts of the body that must be covered in Islam)",
+      "Performing the Tawaf as the last act before leaving Makkah",
+    ],
+    nullifiers: [
+      "Breaking wudu during Tawaf (must restart from where wudu was broken after performing ablution)",
+      "Skipping any part of a circuit or performing fewer than seven circuits",
+      "Performing Tawaf while in a state of major impurity (janabah)",
+      "Engaging in significant activities or staying in Makkah for an extended period after the Tawaf",
+      "Walking inside the Hijr Ismail area (the semi-circular wall near the Kaaba) during Tawaf",
+    ],
+    compensation: [
+      "For not performing Tawaf Al-Wida at all: A sacrifice (dam) is required according to most scholars",
+      "For women in menstruation or postpartum bleeding: No compensation required as they are exempted",
+      "For performing fewer than seven circuits: The missing circuits must be completed if still in Makkah; otherwise, a sacrifice may be required",
+      "For staying in Makkah for business or other purposes after Tawaf Al-Wida: The Tawaf should be repeated before final departure",
+      "For those who cannot perform Tawaf due to illness or disability: They may be exempted according to some scholars, while others recommend appointing someone to perform it on their behalf",
+    ],
+    duas: [
+      {
+        text: "اللَّهُمَّ إِنَّ هَذَا بَيْتُكَ، وَأَنَا عَبْدُكَ وَابْنُ عَبْدِكَ وَابْنُ أَمَتِكَ، حَمَلْتَنِي عَلَى مَا سَخَّرْتَ لِي مِنْ خَلْقِكَ، وَسَيَّرْتَنِي فِي بِلَادِكَ، حَتَّى بَلَّغْتَنِي بِنِعْمَتِكَ إِلَى بَيْتِكَ، وَأَعَنْتَنِي عَلَى أَدَاءِ نُسُكِي، فَإِنْ كُنْتَ رَضِيتَ عَنِّي فَازْدَدْ عَنِّي رِضًا، وَإِلَّا فَمِنَ الْآنِ فَارْضَ عَنِّي قَبْلَ أَنْ تَنْأَى عَنْ بَيْتِكَ دَارِي، فَهَذَا أَوَانُ انْصِرَافِي إِنْ أَذِنْتَ لِي غَيْرَ مُسْتَبْدِلٍ بِكَ وَلَا بِبَيْتِكَ، وَلَا رَاغِبٍ عَنْكَ وَلَا عَنْ بَيْتِكَ، اللَّهُمَّ فَأَصْحِبْنِي الْعَافِيَةَ فِي بَدَنِي، وَالْعِصْمَةَ فِي دِينِي، وَأَحْسِنْ مُنْقَلَبِي، وَارْزُقْنِي طَاعَتَكَ مَا أَبْقَيْتَنِي، وَاجْمَعْ لِي بَيْنَ خَيْرَيِ الدُّنْيَا وَالْآخِرَةِ، إِنَّكَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        translation:
+          "O Allah, this is Your House and I am Your servant, son of Your servant, son of Your maidservant. You have carried me on what You have made subservient to me from Your creation, and You have made me journey through Your lands until You brought me, by Your favor, to Your House, and You have helped me perform my rites. If You are pleased with me, then increase Your pleasure with me; otherwise, be pleased with me now before I depart from Your House. Now is the time of my departure, if You permit me, without substituting anyone for You or for Your House, and without turning away from You or from Your House. O Allah, grant me well-being in my body, protection in my faith, bless my return, and grant me obedience to You as long as You keep me alive. Combine for me the good of this world and the Hereafter, for You have power over all things.",
+        source: "Based on supplications reported from the early generations of Muslims",
+      },
+      {
+        text: "اللَّهُمَّ لَا تَجْعَلْهُ آخِرَ الْعَهْدِ بِبَيْتِكَ الْحَرَامِ، وَارْزُقْنِي الْعَوْدَةَ إِلَيْهِ مَرَّاتٍ وَمَرَّاتٍ",
+        translation:
+          "O Allah, do not make this my last visit to Your Sacred House, and grant me the opportunity to return to it time and time again.",
+        source: "A common supplication made by pilgrims during Tawaf Al-Wida",
+      },
+      {
+        text: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+        translation:
+          "Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.",
+        source: "Quran 2:201 - A dua frequently recited by the Prophet (PBUH) during Tawaf",
+      },
+    ],
+    authenticSources: [
+      "Sahih Bukhari 1755: The Prophet (PBUH) said, 'None of you should depart until he performs the last circumambulation around the House (Kaaba)'",
+      "Sahih Muslim 1327: Ibn Abbas reported that people were commanded that the last thing they should do is to circumambulate the House, but an exemption was granted to menstruating women",
+      "Sunan Abu Dawud 2002: The Prophet (PBUH) said, 'Whoever performs Hajj to this House, let the last of his deeds at the House be the circumambulation'",
+      "Sahih Bukhari 1756: Aisha reported that Safiyyah bint Huyay got her menses after performing Tawaf Al-Ifadah, and the Prophet (PBUH) said, 'Will she delay us?' When informed that she had already performed Tawaf Al-Ifadah, he said, 'Then she can depart'",
+      "Sunan Ibn Majah 3070: The Prophet (PBUH) said, 'The Tawaf around the House is like prayer, except that you are allowed to speak during it, so whoever speaks during it should only say what is good'",
+    ],
   },
 }
