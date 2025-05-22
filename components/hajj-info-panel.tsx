@@ -95,6 +95,19 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
           </div>
         )}
 
+        {locationData.compensation && locationData.compensation.length > 0 && (
+          <div className="mb-6">
+            <h3 className="font-semibold text-lg mb-2">Compensation</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              {locationData.compensation.map((item, index) => (
+                <li key={index} className="text-gray-700">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {locationData.duas && locationData.duas.length > 0 && (
           <div className="mb-6">
             <h3 className="font-semibold text-lg mb-2">Duas or Ayats that Must Be Said</h3>

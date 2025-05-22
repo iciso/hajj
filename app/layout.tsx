@@ -12,7 +12,7 @@ const amiri = Amiri({
 
 export const metadata: Metadata = {
   title: "Interactive Hajj Guide",
-  description: "Learn about the rituals and locations of Hajj through this interactive guide",
+  description: "Learn about the rituals and locations of Hajj Tamattu through this interactive guide",
     generator: 'v0.dev'
 }
 
