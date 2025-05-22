@@ -8,6 +8,11 @@ export interface LocationData {
   rituals: string[]
   tips?: string[]
   historicalContext?: string
+  rationale?: string
+  rukn?: string[]
+  nullifiers?: string[]
+  duas?: { text: string; translation?: string; source?: string }[]
+  authenticSources?: string[]
 }
 
 export interface HajjData {
@@ -38,6 +43,41 @@ export const hajjData: HajjData = {
     ],
     historicalContext:
       "The ritual of Ihram dates back to Prophet Ibrahim (Abraham) and was revived by Prophet Muhammad (PBUH) during his farewell pilgrimage.",
+    rationale:
+      "Ihram represents equality before Allah, removing worldly distinctions and entering a state of purity and devotion. It symbolizes the pilgrim's intention to dedicate themselves solely to worship and leave behind worldly concerns.",
+    rukn: [
+      "Niyyah (intention) to enter the state of Ihram",
+      "Wearing the proper Ihram garments for men (two white unsewn cloths)",
+      "Reciting the Talbiyah after entering Ihram",
+      "Abstaining from prohibited actions while in Ihram",
+    ],
+    nullifiers: [
+      "Intentionally wearing sewn clothes (for men)",
+      "Using perfume or scented products",
+      "Cutting hair or nails",
+      "Hunting or killing land animals",
+      "Engaging in marital relations",
+      "Covering the face (for women) or head (for men)",
+    ],
+    duas: [
+      {
+        text: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",
+        translation:
+          "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise, grace and sovereignty belong to You. You have no partner.",
+        source: "Sahih Bukhari 1549 and Sahih Muslim 1184",
+      },
+      {
+        text: "اللَّهُمَّ إِنِّي أُرِيدُ الْعُمْرَةَ فَيَسِّرْهَا لِي وَتَقَبَّلْهَا مِنِّي",
+        translation: "O Allah, I intend to perform Umrah, so make it easy for me and accept it from me.",
+        source: "Based on the practice of the Prophet (PBUH)",
+      },
+    ],
+    authenticSources: [
+      "Sahih Bukhari 1549: The Prophet (PBUH) taught the Talbiyah for Hajj and Umrah",
+      "Sahih Muslim 1177: Description of the Prophet's (PBUH) Ihram",
+      "Sunan Abu Dawud 1774: The Prophet (PBUH) said, 'Whoever intends to perform Hajj or Umrah should start with Ihram'",
+      "Quran 2:196: 'And complete the Hajj and Umrah for Allah'",
+    ],
   },
   mina_first: {
     name: "Mina - First Day",
@@ -59,6 +99,44 @@ export const hajjData: HajjData = {
     ],
     historicalContext:
       "Mina is where Prophet Ibrahim (Abraham) was tempted by Satan and stoned him. It has been a gathering place for pilgrims since the time of Prophet Muhammad (PBUH).",
+    rationale:
+      "Staying in Mina on the 8th of Dhul-Hijjah (Yawm al-Tarwiyah) is a preparatory step for the standing at Arafat. It follows the Sunnah of Prophet Muhammad (PBUH) who stayed in Mina before proceeding to Arafat, allowing pilgrims to mentally and spiritually prepare for the most important day of Hajj.",
+    rukn: [
+      "Re-entering the state of Ihram with the intention for Hajj",
+      "Reciting the Talbiyah for Hajj",
+      "Staying in Mina (though this is Sunnah, not obligatory according to most scholars)",
+    ],
+    nullifiers: [
+      "Leaving Mina before Fajr of the 9th without a valid reason",
+      "Breaking the rules of Ihram (as the pilgrim is now in Ihram for Hajj)",
+      "Not making the intention for Hajj when re-entering Ihram",
+    ],
+    duas: [
+      {
+        text: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",
+        translation:
+          "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise, grace and sovereignty belong to You. You have no partner.",
+        source: "Sahih Bukhari 1549 and Sahih Muslim 1184",
+      },
+      {
+        text: "اللَّهُمَّ إِنِّي أُرِيدُ الْحَجَّ فَيَسِّرْهُ لِي وَتَقَبَّلْهُ مِنِّي",
+        translation: "O Allah, I intend to perform Hajj, so make it easy for me and accept it from me.",
+        source: "Based on the practice of the Prophet (PBUH)",
+      },
+      {
+        text: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+        translation:
+          "Our Lord, give us good in this world and good in the Hereafter, and save us from the punishment of the Fire.",
+        source: "Quran 2:201 - A dua frequently recited by the Prophet (PBUH) during Hajj",
+      },
+    ],
+    authenticSources: [
+      "Sahih Bukhari 1653: The Prophet (PBUH) stayed at Mina on the day of Tarwiyah and prayed there",
+      "Sahih Muslim 1218: Description of the Prophet's (PBUH) journey to Mina on the 8th of Dhul-Hijjah",
+      "Sunan Abu Dawud 1911: The Prophet (PBUH) prayed five prayers in Mina: Dhuhr, Asr, Maghrib, Isha, and Fajr",
+      "Musnad Ahmad 14334: The Prophet (PBUH) spent the night in Mina before proceeding to Arafat",
+      "Ibn Majah 3074: The Prophet (PBUH) said, 'Hajj is Arafat', indicating that while staying in Mina is Sunnah, it is not a pillar of Hajj",
+    ],
   },
   arafat: {
     name: "Arafat - Day of Standing",

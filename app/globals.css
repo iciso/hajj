@@ -25,6 +25,10 @@ svg *:focus {
   outline: none !important;
 }
 
+.font-arabic {
+  font-family: var(--font-amiri), serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

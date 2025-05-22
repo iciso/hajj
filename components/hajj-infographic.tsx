@@ -19,12 +19,12 @@ export default function HajjInfographic() {
   return (
     <div className="flex flex-col lg:flex-row gap-8 relative">
       <div className="w-full lg:w-2/3 bg-gray-50 rounded-xl p-4 relative">
-        <svg viewBox="0 0 500 1350" className="w-full h-auto focus:outline-none" aria-label="Hajj locations map">
+        <svg viewBox="0 0 500 1420" className="w-full h-auto focus:outline-none" aria-label="Hajj locations map">
           {/* Background */}
-          <rect x="0" y="0" width="500" height="1350" fill="#f8fafc" rx="10" />
+          <rect x="0" y="0" width="500" height="1420" fill="#f8fafc" rx="10" />
 
           {/* Timeline path - centered */}
-          <path d="M250,50 L250,1300" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" />
+          <path d="M250,120 L250,1300" fill="none" stroke="#94a3b8" strokeWidth="4" strokeDasharray="8,8" />
 
           {/* 1. Makkah - Ihram & Umrah */}
           <g
@@ -287,22 +287,42 @@ export default function HajjInfographic() {
               className="transition-colors duration-300"
             />
 
-            {/* Knife icon for sacrifice */}
-            <g transform="translate(225, 680)">
-              {/* Knife blade */}
-              <path d="M10,15 L40,45 L50,35 L20,5 Z" fill="white" stroke="#64748b" strokeWidth="1.5" />
+            {/* Sheep icon for sacrifice */}
+            <g transform="translate(220, 670)">
+              {/* Sheep body - fluffy and rounded */}
+              <ellipse cx="30" cy="40" rx="25" ry="15" fill="white" stroke="#64748b" strokeWidth="1.5" />
 
-              {/* Knife handle */}
-              <rect x="5" y="10" width="10" height="30" rx="2" fill="#64748b" />
+              {/* Wool texture */}
+              <path
+                d="M10,35 C15,30 20,32 25,30 C30,28 35,30 40,32 C45,34 50,32 55,35"
+                fill="none"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+              />
+              <path
+                d="M10,40 C15,38 20,40 25,38 C30,36 35,38 40,40 C45,42 50,40 55,42"
+                fill="none"
+                stroke="#64748b"
+                strokeWidth="1"
+                strokeLinecap="round"
+              />
 
-              {/* Knife edge detail */}
-              <line x1="20" y1="5" x2="50" y2="35" stroke="white" strokeWidth="1" />
+              {/* Head */}
+              <ellipse cx="55" cy="30" rx="8" ry="6" fill="white" stroke="#64748b" strokeWidth="1.5" />
 
-              {/* Knife handle detail */}
-              <line x1="7" y1="15" x2="13" y2="15" stroke="white" strokeWidth="1" />
-              <line x1="7" y1="20" x2="13" y2="20" stroke="white" strokeWidth="1" />
-              <line x1="7" y1="25" x2="13" y2="25" stroke="white" strokeWidth="1" />
-              <line x1="7" y1="30" x2="13" y2="30" stroke="white" strokeWidth="1" />
+              {/* Eye */}
+              <circle cx="58" cy="28" r="1" fill="#64748b" />
+
+              {/* Ear */}
+              <ellipse cx="50" cy="26" rx="3" ry="2" fill="white" stroke="#64748b" strokeWidth="1" />
+
+              {/* Legs */}
+              <line x1="20" y1="55" x2="20" y2="65" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="40" y1="55" x2="40" y2="65" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+
+              {/* Tail */}
+              <path d="M10,35 C5,30 5,25 10,20" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
             </g>
           </g>
 
