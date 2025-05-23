@@ -1,0 +1,23 @@
+{
+  "name": "Interactive Hajj Guide",
+  "short_name": "Hajj Guide",
+  "description": "Comprehensive interactive guide to Hajj Tamattu rituals, locations, and requirements",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/hajj-icon.png",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
