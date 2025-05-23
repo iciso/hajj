@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { ArrowLeft, Info } from "lucide-react"
 import HajjInfoPanel from "./hajj-info-panel"
 import { hajjData } from "@/lib/hajj-data"
@@ -9,8 +9,30 @@ export default function HajjInfographic() {
   const [activeLocation, setActiveLocation] = useState<string | null>(null)
   const [showLegend, setShowLegend] = useState(false)
 
+  const mapRef = useRef<HTMLDivElement>(null)
+  const infoPanelRef = useRef<HTMLDivElement>(null)
+
   const handleLocationClick = (locationId: string) => {
     setActiveLocation(locationId)
+
+    // Auto-scroll to info panel on mobile/tablet
+    setTimeout(() => {
+      if (infoPanelRef.current) {
+        infoPanelRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      }
+    }, 100) // Small delay to ensure state update
+  }
+
+  const handleBackToMap = () => {
+    if (mapRef.current) {
+      mapRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
   }
 
   const handleClose = () => {
@@ -23,7 +45,7 @@ export default function HajjInfographic() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 relative">
-      <div className="w-full lg:w-2/3 bg-gray-50 rounded-xl p-4 relative">
+      <div ref={mapRef} className="w-full lg:w-2/3 bg-gray-50 rounded-xl p-4 relative">
         {/* Legend toggle button */}
         <button
           onClick={toggleLegend}
@@ -348,7 +370,7 @@ export default function HajjInfographic() {
               {/* Camel SVG */}
               <g>
                 <path
-                  d="m38.301 32.926c2.447-3.53 3.738-7.644 3.738-11.926 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c3.68 0 7.304-.981 10.51-2.842l7.248 1.812c.341.088.701-.015.95-.263s.348-.608.263-.949zm-36.262-11.926c0-10.477 8.523-19 19-19 8.824 0 16.24 6.055 18.368 14.222-.558.432-1.67.672-2.749.903-1.131.242-2.3.492-3.152 1.029-.895.564-1.742 1.713-2.64 2.93-.804 1.091-2.151 2.916-2.827 2.916h-3c-2.987 0-4.863-4.875-4.993-8.593l2.7-2.7c.228-.227.332-.55.28-.867s-.252-.59-.54-.734c-.09-.045-2.237-1.106-4.447-1.106-1.707 0-2.822.614-3.355 1h-5.645c-1.654 0-3 1.346-3 3v3c0 1.654 1.346 3 3 3 1.667 0 5 1.729 5 4 0 7.727 5.322 12 9 12 3.082 0 4.975.521 6.331 1.743.071.063.13.141.197.21-2.651 1.339-5.569 2.047-8.528 2.047-10.477 0-19-8.523-19-19zm29.596 16.118c-.054-.014-.109-.004-.164-.008-.231-.31-.479-.599-.762-.854-1.756-1.581-4.049-2.256-7.67-2.256-2.512 0-7-3.342-7-10 0-3.664-4.597-6-7-6-.551 0-1-.449-1-1v-1.612l1.684.561c.105.035.212.051.316.051.419 0 .809-.265.949-.684.175-.524-.108-1.09-.632-1.265l-2.069-.69c.183-.216.447-.361.752-.361h6c.253 0 .51-.108.696-.282.031-.029.785-.718 2.304-.718.777 0 1.57.179 2.209.377l-1.916 1.916c-.188.188-.293.442-.293.707 0 4.436 2.225 11 7 11h3c1.686 0 3.022-1.811 4.436-3.729.748-1.014 1.522-2.063 2.097-2.425.551-.348 1.544-.56 2.504-.766.955-.205 1.929-.418 2.746-.798.128.89.217 1.792.217 2.717 0 4.014-1.255 7.864-3.628 11.135-.174.239-.233.543-.161.83l1.415 5.661z"
+                  d="m38.301 32.926c2.447-3.53 3.738-7.644 3.738-11.926 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c3.68 0 7.304-.981 10.51-2.842l7.248 1.812c.341.088.701-.015.95-.263s.348-.608.263-.949zm-36.262-11.926c0-10.477 8.523-19-19-19 8.824 0 16.24 6.055 18.368 14.222-.558.432-1.67.672-2.749.903-1.131.242-2.3.492-3.152 1.029-.895.564-1.742 1.713-2.64 2.93-.804 1.091-2.151 2.916-2.827 2.916h-3c-2.987 0-4.863-4.875-4.993-8.593l2.7-2.7c.228-.227.332-.55.28-.867s-.252-.59-.54-.734c-.09-.045-2.237-1.106-4.447-1.106-1.707 0-2.822.614-3.355 1h-5.645c-1.654 0-3 1.346-3 3v3c0 1.654 1.346 3 3 3 1.667 0 5 1.729 5 4 0 7.727 5.322 12 9 12 3.082 0 4.975.521 6.331 1.743.071.063.13.141.197.21-2.651 1.339-5.569 2.047-8.528 2.047-10.477 0-19-8.523-19-19zm29.596 16.118c-.054-.014-.109-.004-.164-.008-.231-.31-.479-.599-.762-.854-1.756-1.581-4.049-2.256-7.67-2.256-2.512 0-7-3.342-7-10 0-3.664-4.597-6-7-6-.551 0-1-.449-1-1v-1.612l1.684.561c.105.035.212.051.316.051.419 0 .809-.265.949-.684.175-.524-.108-1.09-.632-1.265l-2.069-.69c.183-.216.447-.361.752-.361h6c.253 0 .51-.108.696-.282.031-.029.785-.718 2.304-.718.777 0 1.57.179 2.209.377l-1.916 1.916c-.188.188-.293.442-.293.707 0 4.436 2.225 11 7 11h3c1.686 0 3.022-1.811 4.436-3.729.748-1.014 1.522-2.063 2.097-2.425.551-.348 1.544-.56 2.504-.766.955-.205 1.929-.418 2.746-.798.128.89.217 1.792.217 2.717 0 4.014-1.255 7.864-3.628 11.135-.174.239-.233.543-.161.83l1.415 5.661z"
                   fill="white"
                   stroke="#64748b"
                   strokeWidth="0.8"
@@ -683,9 +705,9 @@ export default function HajjInfographic() {
         )}
       </div>
 
-      <div className="w-full lg:w-1/3 bg-white rounded-xl shadow-md overflow-hidden">
+      <div ref={infoPanelRef} className="w-full lg:w-1/3 bg-white rounded-xl shadow-md overflow-hidden">
         {activeLocation ? (
-          <HajjInfoPanel locationData={hajjData[activeLocation]} />
+          <HajjInfoPanel locationData={hajjData[activeLocation]} onBackToMap={handleBackToMap} />
         ) : (
           <div className="h-full overflow-y-auto">
             <div className="bg-emerald-600 p-6 text-white">

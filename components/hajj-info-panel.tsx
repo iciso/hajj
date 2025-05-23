@@ -2,13 +2,14 @@
 
 import { useEffect, useRef } from "react"
 import type { LocationData, RitualType } from "@/lib/hajj-data"
-import { Calendar, Clock, MapPin, Star, CheckCircle2 } from "lucide-react"
+import { Calendar, Clock, MapPin, Star, CheckCircle2, ArrowLeft } from "lucide-react"
 
 interface HajjInfoPanelProps {
   locationData: LocationData
+  onBackToMap?: () => void
 }
 
-export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
+export default function HajjInfoPanel({ locationData, onBackToMap }: HajjInfoPanelProps) {
   const panelRef = useRef<HTMLDivElement>(null)
 
   // Reset scroll position when location changes
@@ -178,6 +179,17 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
             </ul>
           </div>
         )}
+
+        {/* Back to Map Button - Mobile/Tablet only */}
+        <div className="lg:hidden p-6 border-t border-gray-200 bg-gray-50">
+          <button
+            onClick={onBackToMap}
+            className="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white py-3 px-4 rounded-lg hover:bg-emerald-700 transition-colors"
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Timeline</span>
+          </button>
+        </div>
       </div>
     </div>
   )
