@@ -1,3 +1,5 @@
+export type RitualType = "obligatory" | "sunnah"
+
 export interface LocationData {
   name: string
   arabicName: string
@@ -5,7 +7,7 @@ export interface LocationData {
   timing?: string
   duration?: string
   significance?: string
-  rituals: string[]
+  rituals: { text: string; type: RitualType }[]
   tips?: string[]
   historicalContext?: string
   rationale?: string
@@ -29,12 +31,12 @@ export const hajjData: HajjData = {
     significance:
       "Entering the sacred state of Ihram is the first step of Hajj, signifying purity and devotion to Allah.",
     rituals: [
-      "Entering Ihram (sacred state) by wearing special white garments",
-      "Reciting the Talbiyah prayer",
-      "Performing Umrah (Tawaf around the Kaaba seven times)",
-      "Sa'i (walking between Safa and Marwa hills seven times)",
-      "Trimming hair to complete Umrah",
-      "Coming out of Ihram temporarily until 8th Dhul-Hijjah",
+      { text: "Entering Ihram (sacred state) by wearing special white garments", type: "obligatory" },
+      { text: "Reciting the Talbiyah prayer", type: "obligatory" },
+      { text: "Performing Umrah (Tawaf around the Kaaba seven times)", type: "obligatory" },
+      { text: "Sa'i (walking between Safa and Marwa hills seven times)", type: "obligatory" },
+      { text: "Trimming hair to complete Umrah", type: "obligatory" },
+      { text: "Coming out of Ihram temporarily until 8th Dhul-Hijjah", type: "obligatory" },
     ],
     tips: [
       "Men should wear two pieces of white unsewn cloth",
@@ -94,10 +96,10 @@ export const hajjData: HajjData = {
     timing: "8th of Dhul-Hijjah",
     duration: "One day and night",
     rituals: [
-      "Re-entering Ihram for Hajj",
-      "Moving from Makkah to Mina",
-      "Praying Dhuhr, Asr, Maghrib, Isha, and Fajr in Mina",
-      "Spending the night in Mina",
+      { text: "Re-entering Ihram for Hajj", type: "obligatory" },
+      { text: "Moving from Makkah to Mina", type: "sunnah" },
+      { text: "Praying Dhuhr, Asr, Maghrib, Isha, and Fajr in Mina", type: "sunnah" },
+      { text: "Spending the night in Mina", type: "sunnah" },
     ],
     tips: [
       "Pack light but essential items for your stay in Mina",
@@ -160,10 +162,10 @@ export const hajjData: HajjData = {
     significance:
       "The most important day of Hajj. Standing on Arafat is the essence of Hajj, and without it, the Hajj is considered invalid.",
     rituals: [
-      "Standing (Wuquf) at Arafat and making supplications",
-      "Listening to the sermon at Masjid Namirah",
-      "Combining Dhuhr and Asr prayers",
-      "Making dua (supplication) until sunset",
+      { text: "Standing (Wuquf) at Arafat and making supplications", type: "obligatory" },
+      { text: "Listening to the sermon at Masjid Namirah", type: "sunnah" },
+      { text: "Combining Dhuhr and Asr prayers", type: "sunnah" },
+      { text: "Making dua (supplication) until sunset", type: "sunnah" },
     ],
     tips: [
       "Bring an umbrella for shade as there are few natural shelters",
@@ -227,10 +229,10 @@ export const hajjData: HajjData = {
     duration: "One night",
     significance: "A place of rest and preparation between the standing at Arafat and the rituals of the 10th day.",
     rituals: [
-      "Moving from Arafat to Muzdalifah after sunset",
-      "Combining Maghrib and Isha prayers",
-      "Spending the night under the open sky",
-      "Collecting pebbles for the stoning ritual at Jamarat",
+      { text: "Moving from Arafat to Muzdalifah after sunset", type: "obligatory" },
+      { text: "Combining Maghrib and Isha prayers", type: "sunnah" },
+      { text: "Spending the night under the open sky", type: "obligatory" },
+      { text: "Collecting pebbles for the stoning ritual at Jamarat", type: "sunnah" },
     ],
     tips: [
       "Collect 49 pebbles (or at least 21 if performing shortened Hajj)",
@@ -289,9 +291,9 @@ export const hajjData: HajjData = {
     significance:
       "Symbolizes the rejection of evil and temptation, following the example of Prophet Ibrahim (Abraham).",
     rituals: [
-      "Moving from Muzdalifah to Mina at dawn",
-      "Stoning the large pillar (Jamarat al-Aqabah) with seven pebbles",
-      "Reciting takbir (Allahu Akbar) with each throw",
+      { text: "Moving from Muzdalifah to Mina at dawn", type: "sunnah" },
+      { text: "Stoning the large pillar (Jamarat al-Aqabah) with seven pebbles", type: "obligatory" },
+      { text: "Reciting takbir (Allahu Akbar) with each throw", type: "sunnah" },
     ],
     tips: [
       "Aim carefully but don't worry if you miss",
@@ -351,9 +353,9 @@ export const hajjData: HajjData = {
     duration: "Can be performed anytime during the 10th, 11th, 12th, or 13th of Dhul-Hijjah",
     significance: "Commemorates Prophet Ibrahim's willingness to sacrifice his son in obedience to Allah's command.",
     rituals: [
-      "Sacrificing an animal (sheep, goat, cow, or camel)",
-      "Distributing the meat to the poor and needy",
-      "Can be done by proxy through authorized agencies",
+      { text: "Sacrificing an animal (sheep, goat, cow, or camel)", type: "obligatory" },
+      { text: "Distributing the meat to the poor and needy", type: "obligatory" },
+      { text: "Can be done by proxy through authorized agencies", type: "sunnah" },
     ],
     tips: [
       "Most pilgrims now use vouchers to have the sacrifice performed on their behalf",
@@ -412,8 +414,11 @@ export const hajjData: HajjData = {
     duration: "Brief ritual, performed once during Hajj",
     significance: "Marks the partial completion of Hajj and the end of most Ihram restrictions.",
     rituals: [
-      "Men: Completely shaving the head (preferred) or trimming hair equally from all parts of the head",
-      "Women: Trimming a fingertip length of hair",
+      {
+        text: "Men: Completely shaving the head (preferred) or trimming hair equally from all parts of the head",
+        type: "obligatory",
+      },
+      { text: "Women: Trimming a fingertip length of hair", type: "obligatory" },
     ],
     tips: [
       "Men should consider shaving completely as it carries more reward",
@@ -471,10 +476,10 @@ export const hajjData: HajjData = {
     duration: "Approximately one hour, but can take longer during crowded periods",
     significance: "This is an essential pillar of Hajj without which the Hajj is invalid.",
     rituals: [
-      "Circumambulating the Kaaba seven times",
-      "Praying two rakats behind Maqam Ibrahim",
-      "Drinking Zamzam water",
-      "Performing Sa'i between Safa and Marwa (if not done with Umrah in Tamattu Hajj)",
+      { text: "Circumambulating the Kaaba seven times", type: "obligatory" },
+      { text: "Praying two rakats behind Maqam Ibrahim", type: "sunnah" },
+      { text: "Drinking Zamzam water", type: "sunnah" },
+      { text: "Performing Sa'i between Safa and Marwa (if not done with Umrah in Tamattu Hajj)", type: "obligatory" },
     ],
     tips: [
       "The 10th day is very busy, so you may delay this Tawaf until the 11th or 12th if needed",
@@ -543,10 +548,10 @@ export const hajjData: HajjData = {
     duration: "Two or three days",
     significance: "These days complete the Hajj rituals and commemorate the final days of Prophet Ibrahim's trial.",
     rituals: [
-      "Staying in Mina",
-      "Stoning all three Jamarat pillars each day after Dhuhr prayer",
-      "Performing daily prayers",
-      "Remembering Allah (dhikr) and making supplications",
+      { text: "Staying in Mina", type: "obligatory" },
+      { text: "Stoning all three Jamarat pillars each day after Dhuhr prayer", type: "obligatory" },
+      { text: "Performing daily prayers", type: "obligatory" },
+      { text: "Remembering Allah (dhikr) and making supplications", type: "sunnah" },
     ],
     tips: [
       "Stone the pillars in order: small, medium, then large",
@@ -613,11 +618,11 @@ export const hajjData: HajjData = {
     significance:
       "Represents the continued rejection of evil and temptation, and the commitment to follow the path of righteousness.",
     rituals: [
-      "Stoning the small pillar (Jamarat al-Sughra) with seven pebbles",
-      "Stoning the medium pillar (Jamarat al-Wusta) with seven pebbles",
-      "Stoning the large pillar (Jamarat al-Aqabah) with seven pebbles",
-      "Reciting takbir (Allahu Akbar) with each throw",
-      "Making dua after stoning the small and medium pillars",
+      { text: "Stoning the small pillar (Jamarat al-Sughra) with seven pebbles", type: "obligatory" },
+      { text: "Stoning the medium pillar (Jamarat al-Wusta) with seven pebbles", type: "obligatory" },
+      { text: "Stoning the large pillar (Jamarat al-Aqabah) with seven pebbles", type: "obligatory" },
+      { text: "Reciting takbir (Allahu Akbar) with each throw", type: "sunnah" },
+      { text: "Making dua after stoning the small and medium pillars", type: "sunnah" },
     ],
     tips: [
       "Start after Dhuhr prayer (midday) and before Maghrib (sunset)",
@@ -691,11 +696,11 @@ export const hajjData: HajjData = {
     significance:
       "This is the final act of Hajj, bidding farewell to the Kaaba and completing the pilgrimage with a gesture of respect and devotion to Allah's House.",
     rituals: [
-      "Circumambulating the Kaaba seven times",
-      "Praying two rakats behind Maqam Ibrahim if possible",
-      "Making final supplications",
-      "Drinking Zamzam water as a final blessing",
-      "Departing from Makkah with the Kaaba as the last thing visited",
+      { text: "Circumambulating the Kaaba seven times", type: "obligatory" },
+      { text: "Praying two rakats behind Maqam Ibrahim if possible", type: "sunnah" },
+      { text: "Making final supplications", type: "sunnah" },
+      { text: "Drinking Zamzam water as a final blessing", type: "sunnah" },
+      { text: "Departing from Makkah with the Kaaba as the last thing visited", type: "obligatory" },
     ],
     tips: [
       "Perform this Tawaf just before leaving Makkah, with no significant delay afterward",

@@ -1,8 +1,8 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import type { LocationData } from "@/lib/hajj-data"
-import { Calendar, Clock, MapPin } from "lucide-react"
+import type { LocationData, RitualType } from "@/lib/hajj-data"
+import { Calendar, Clock, MapPin, Star, CheckCircle2 } from "lucide-react"
 
 interface HajjInfoPanelProps {
   locationData: LocationData
@@ -17,6 +17,20 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
       panelRef.current.scrollTop = 0
     }
   }, [locationData])
+
+  // Function to render ritual with appropriate icon based on type
+  const renderRitual = (ritual: { text: string; type: RitualType }, index: number) => {
+    return (
+      <li key={index} className="text-gray-700 flex items-start gap-2">
+        {ritual.type === "obligatory" ? (
+          <CheckCircle2 size={18} className="text-emerald-600 mt-0.5 flex-shrink-0" />
+        ) : (
+          <Star size={18} className="text-amber-500 mt-0.5 flex-shrink-0" />
+        )}
+        <span>{ritual.text}</span>
+      </li>
+    )
+  }
 
   return (
     <div ref={panelRef} className="h-full overflow-y-auto">
@@ -44,6 +58,21 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
           </div>
         )}
 
+        {/* Ritual Type Legend */}
+        <div className="mb-4 p-3 bg-gray-50 rounded-md">
+          <h4 className="font-medium text-gray-700 mb-2">Ritual Types:</h4>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 size={16} className="text-emerald-600" />
+              <span className="text-sm text-gray-700">Obligatory (Fard/Wajib) - Essential for valid Hajj</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star size={16} className="text-amber-500" />
+              <span className="text-sm text-gray-700">Sunnah - Recommended but not mandatory</span>
+            </div>
+          </div>
+        </div>
+
         {locationData.significance && (
           <div className="mb-6">
             <h3 className="font-semibold text-lg mb-2">Significance</h3>
@@ -53,13 +82,7 @@ export default function HajjInfoPanel({ locationData }: HajjInfoPanelProps) {
 
         <div className="mb-6">
           <h3 className="font-semibold text-lg mb-2">Rituals Performed</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            {locationData.rituals.map((ritual, index) => (
-              <li key={index} className="text-gray-700">
-                {ritual}
-              </li>
-            ))}
-          </ul>
+          <ul className="pl-5 space-y-2">{locationData.rituals.map((ritual, index) => renderRitual(ritual, index))}</ul>
         </div>
 
         {locationData.rationale && (

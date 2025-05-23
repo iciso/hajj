@@ -1,12 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Info } from "lucide-react"
 import HajjInfoPanel from "./hajj-info-panel"
 import { hajjData } from "@/lib/hajj-data"
 
 export default function HajjInfographic() {
   const [activeLocation, setActiveLocation] = useState<string | null>(null)
+  const [showLegend, setShowLegend] = useState(false)
 
   const handleLocationClick = (locationId: string) => {
     setActiveLocation(locationId)
@@ -16,9 +17,46 @@ export default function HajjInfographic() {
     setActiveLocation(null)
   }
 
+  const toggleLegend = () => {
+    setShowLegend(!showLegend)
+  }
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 relative">
       <div className="w-full lg:w-2/3 bg-gray-50 rounded-xl p-4 relative">
+        {/* Legend toggle button */}
+        <button
+          onClick={toggleLegend}
+          className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors z-10"
+          aria-label="Show ritual type legend"
+        >
+          <Info size={20} />
+        </button>
+
+        {/* Floating legend */}
+        {showLegend && (
+          <div className="absolute top-16 right-4 bg-white p-4 rounded-lg shadow-lg z-10 w-64">
+            <h4 className="font-medium text-gray-800 mb-2">Ritual Types:</h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-emerald-600"></div>
+                <span className="text-sm">Obligatory (Fard/Wajib)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-amber-500"></div>
+                <span className="text-sm">Sunnah (Recommended)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded-full bg-gray-400"></div>
+                <span className="text-sm">Inactive/Unselected</span>
+              </div>
+            </div>
+            <button onClick={toggleLegend} className="mt-3 text-sm text-gray-600 hover:text-gray-900">
+              Close
+            </button>
+          </div>
+        )}
+
         <svg viewBox="0 0 500 1420" className="w-full h-auto focus:outline-none" aria-label="Hajj locations map">
           {/* Background */}
           <rect x="0" y="0" width="500" height="1420" fill="#f8fafc" rx="10" />
@@ -45,9 +83,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="120"
               r="40"
-              fill={activeLocation === "makkah_ihram" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "makkah_ihram" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="80" r="8" fill="#10b981" />
 
             {/* Kaaba cube */}
             <g transform="translate(230, 100)">
@@ -84,9 +125,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="220"
               r="40"
-              fill={activeLocation === "mina_first" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "mina_first" ? "#f59e0b" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Sunnah indicator */}
+            <circle cx="250" cy="180" r="8" fill="#f59e0b" />
 
             {/* Mina-style tent encampment */}
             <g transform="translate(220, 190)">
@@ -128,9 +172,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="340"
               r="40"
-              fill={activeLocation === "arafat" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "arafat" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="300" r="8" fill="#10b981" />
 
             {/* Arafat - Prayer hands in supplication */}
             <g transform="translate(220, 310) scale(2.5)">
@@ -191,9 +238,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="460"
               r="40"
-              fill={activeLocation === "muzdalifah" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "muzdalifah" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="420" r="8" fill="#10b981" />
 
             {/* Hand holding pebbles for Muzdalifah */}
             <g transform="translate(230, 440)">
@@ -244,9 +294,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="580"
               r="40"
-              fill={activeLocation === "jamarat_first" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "jamarat_first" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="540" r="8" fill="#10b981" />
 
             {/* Three Jamarat pillars of different sizes */}
             <g transform="translate(220, 550)">
@@ -283,46 +336,36 @@ export default function HajjInfographic() {
               cx="250"
               cy="700"
               r="40"
-              fill={activeLocation === "sacrifice" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "sacrifice" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
 
-            {/* Sheep icon for sacrifice */}
-            <g transform="translate(220, 670)">
-              {/* Sheep body - fluffy and rounded */}
-              <ellipse cx="30" cy="40" rx="25" ry="15" fill="white" stroke="#64748b" strokeWidth="1.5" />
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="660" r="8" fill="#10b981" />
 
-              {/* Wool texture */}
-              <path
-                d="M10,35 C15,30 20,32 25,30 C30,28 35,30 40,32 C45,34 50,32 55,35"
-                fill="none"
-                stroke="#64748b"
-                strokeWidth="1"
-                strokeLinecap="round"
-              />
-              <path
-                d="M10,40 C15,38 20,40 25,38 C30,36 35,38 40,40 C45,42 50,40 55,42"
-                fill="none"
-                stroke="#64748b"
-                strokeWidth="1"
-                strokeLinecap="round"
-              />
+            {/* Camel icon for sacrifice */}
+            <g transform="translate(215, 670) scale(0.8)">
+              {/* Camel SVG */}
+              <g>
+                <path
+                  d="m38.301 32.926c2.447-3.53 3.738-7.644 3.738-11.926 0-11.58-9.42-21-21-21s-21 9.42-21 21 9.42 21 21 21c3.68 0 7.304-.981 10.51-2.842l7.248 1.812c.341.088.701-.015.95-.263s.348-.608.263-.949zm-36.262-11.926c0-10.477 8.523-19 19-19 8.824 0 16.24 6.055 18.368 14.222-.558.432-1.67.672-2.749.903-1.131.242-2.3.492-3.152 1.029-.895.564-1.742 1.713-2.64 2.93-.804 1.091-2.151 2.916-2.827 2.916h-3c-2.987 0-4.863-4.875-4.993-8.593l2.7-2.7c.228-.227.332-.55.28-.867s-.252-.59-.54-.734c-.09-.045-2.237-1.106-4.447-1.106-1.707 0-2.822.614-3.355 1h-5.645c-1.654 0-3 1.346-3 3v3c0 1.654 1.346 3 3 3 1.667 0 5 1.729 5 4 0 7.727 5.322 12 9 12 3.082 0 4.975.521 6.331 1.743.071.063.13.141.197.21-2.651 1.339-5.569 2.047-8.528 2.047-10.477 0-19-8.523-19-19zm29.596 16.118c-.054-.014-.109-.004-.164-.008-.231-.31-.479-.599-.762-.854-1.756-1.581-4.049-2.256-7.67-2.256-2.512 0-7-3.342-7-10 0-3.664-4.597-6-7-6-.551 0-1-.449-1-1v-1.612l1.684.561c.105.035.212.051.316.051.419 0 .809-.265.949-.684.175-.524-.108-1.09-.632-1.265l-2.069-.69c.183-.216.447-.361.752-.361h6c.253 0 .51-.108.696-.282.031-.029.785-.718 2.304-.718.777 0 1.57.179 2.209.377l-1.916 1.916c-.188.188-.293.442-.293.707 0 4.436 2.225 11 7 11h3c1.686 0 3.022-1.811 4.436-3.729.748-1.014 1.522-2.063 2.097-2.425.551-.348 1.544-.56 2.504-.766.955-.205 1.929-.418 2.746-.798.128.89.217 1.792.217 2.717 0 4.014-1.255 7.864-3.628 11.135-.174.239-.233.543-.161.83l1.415 5.661z"
+                  fill="white"
+                  stroke="#64748b"
+                  strokeWidth="0.8"
+                />
+                <path
+                  d="m61.234 46.636-5.076-1.224c-.617-.124-1.158-.784-1.158-1.412v-1.11c1.235-1.263 2-2.988 2-4.89v-6c0-3.86-3.14-7-7-7s-7 3.14-7 7v6c0 1.901.765 3.627 2 4.89v1.11c0 .628-.541 1.288-1.195 1.421l-5.002 1.206c-1.55.312-2.764 1.793-2.764 3.373v13c0 .553.448 1 1 1h25.922c.552 0 1-.447 1-1v-13c0-1.58-1.214-3.062-2.727-3.364zm-11.234-3.636c-2.417 0-4.438-1.726-4.9-4.01 1.264 1.241 2.993 2.01 4.9 2.01s3.636-.769 4.9-2.01c-.462 2.284-2.483 4.01-4.9 4.01zm-3 1.314c.911.435 1.925.686 3 .686s2.089-.251 3-.686v3.271l-2.414 2.415h-1.172l-2.414-2.414zm-2-12.314c0-2.757 2.243-5 5-5s5 2.243 5 5v2c0 2.757-2.243 5-5 5s-5-2.243-5-5zm16.961 30h-23.922v-12c0-.628.541-1.288 1.195-1.421l5.002-1.206c.268-.054.521-.153.764-.271v.898c0 .266.105.52.293.707l3 3c.187.188.442.293.707.293h2c.265 0 .52-.105.707-.293l3-3c.188-.187.293-.441.293-.707v-.893c.233.111.473.206.727.257l5.076 1.224c.617.124 1.158.784 1.158 1.412z"
+                  fill="white"
+                  stroke="#64748b"
+                  strokeWidth="0.8"
+                />
+              </g>
 
-              {/* Head */}
-              <ellipse cx="55" cy="30" rx="8" ry="6" fill="white" stroke="#64748b" strokeWidth="1.5" />
-
-              {/* Eye */}
-              <circle cx="58" cy="28" r="1" fill="#64748b" />
-
-              {/* Ear */}
-              <ellipse cx="50" cy="26" rx="3" ry="2" fill="white" stroke="#64748b" strokeWidth="1" />
-
-              {/* Legs */}
-              <line x1="20" y1="55" x2="20" y2="65" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
-              <line x1="40" y1="55" x2="40" y2="65" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
-
-              {/* Tail */}
-              <path d="M10,35 C5,30 5,25 10,20" fill="none" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+              {/* Number 7 to indicate one camel equals seven goats */}
+              <circle cx="70" cy="30" r="12" fill="#10b981" stroke="#64748b" strokeWidth="0.8" />
+              <text x="70" y="34" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">
+                7
+              </text>
             </g>
           </g>
 
@@ -345,9 +388,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="820"
               r="40"
-              fill={activeLocation === "shaving" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "shaving" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="780" r="8" fill="#10b981" />
 
             {/* Bald head icon for shaving */}
             <g transform="translate(225, 790)">
@@ -404,9 +450,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="940"
               r="40"
-              fill={activeLocation === "tawaf_ifadah" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "tawaf_ifadah" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="900" r="8" fill="#10b981" />
 
             {/* Kaaba cube with circular path */}
             <g transform="translate(230, 920)">
@@ -446,9 +495,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="1060"
               r="40"
-              fill={activeLocation === "mina_tashreeq" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "mina_tashreeq" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="1020" r="8" fill="#10b981" />
 
             {/* Mina-style tent encampment */}
             <g transform="translate(220, 1030)">
@@ -490,9 +542,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="1180"
               r="40"
-              fill={activeLocation === "jamarat_final" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "jamarat_final" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="1140" r="8" fill="#10b981" />
 
             {/* Three Jamarat pillars with pebbles being thrown */}
             <g transform="translate(220, 1150)">
@@ -534,9 +589,12 @@ export default function HajjInfographic() {
               cx="250"
               cy="1300"
               r="40"
-              fill={activeLocation === "tawaf_wida" ? "#4ade80" : "#94a3b8"}
+              fill={activeLocation === "tawaf_wida" ? "#10b981" : "#94a3b8"}
               className="transition-colors duration-300"
             />
+
+            {/* Obligatory indicator */}
+            <circle cx="250" cy="1260" r="8" fill="#10b981" />
 
             {/* Kaaba cube with dashed circular path */}
             <g transform="translate(230, 1280)">
@@ -638,10 +696,29 @@ export default function HajjInfographic() {
               <p className="text-gray-700 mb-4">
                 Click on any location on the map to learn about the rituals performed during Hajj.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-6">
                 Hajj Tamattu is where pilgrims perform Umrah first, then Hajj with a break in between. This is the most
                 common type of Hajj performed today.
               </p>
+
+              {/* Ritual Type Legend */}
+              <div className="mb-4 p-4 bg-gray-50 rounded-md">
+                <h3 className="font-semibold text-lg mb-3">Ritual Types:</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-emerald-600"></div>
+                    <span className="text-gray-700">
+                      <strong>Obligatory (Fard/Wajib)</strong> - Essential for valid Hajj
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-amber-500"></div>
+                    <span className="text-gray-700">
+                      <strong>Sunnah (Recommended)</strong> - Following the Prophet's example but not mandatory
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
