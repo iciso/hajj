@@ -23,8 +23,16 @@ export const metadata: Metadata = {
     title: "Interactive Hajj Guide | Complete Hajj Tamattu Rituals & Locations",
     description:
       "Comprehensive interactive guide to Hajj Tamattu rituals, locations, and requirements. Learn about Makkah, Mina, Arafat, and all essential Hajj practices with authentic Islamic sources.",
-    images: ["/app-icon.png"],
+    images: [
+      {
+        url: "/app-icon.png",
+        width: 512,
+        height: 512,
+        alt: "Hajj Guide Logo - Interactive Hajj and Umrah Guide",
+      },
+    ],
     type: "website",
+    siteName: "Interactive Hajj Guide",
   },
   twitter: {
     card: "summary_large_image",
@@ -35,9 +43,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/hajj-icon.png", type: "image/svg+xml" },
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/hajj-icon.png", type: "image/png" },
     ],
-    apple: [{ url: "/app-icon.png" }],
+    apple: [{ url: "/app-icon.png", sizes: "512x512", type: "image/png" }],
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
   themeColor: "#10b981",
@@ -54,8 +64,13 @@ export default function RootLayout({
     <html lang="en" dir="ltr">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/hajj-icon.png" type="image/svg+xml" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/app-icon.png" />
+        <meta property="og:image" content="/app-icon.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="Hajj Guide Logo - Interactive Hajj and Umrah Guide" />
+        <meta name="twitter:image" content="/app-icon.png" />
       </head>
       <body className={`${inter.className} ${amiri.variable}`}>{children}</body>
     </html>
