@@ -1,22 +1,22 @@
 {
   "name": "Interactive Hajj Guide",
   "short_name": "Hajj Guide",
-  "description": "Comprehensive interactive guide to Hajj Tamattu rituals, locations, and requirements",
+  "description": "Comprehensive infographic guide to Hajj Tamattu rituals, locations, and requirements",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#10b981",
   "icons": [
     {
-      "src": "/app-icon.png",
+      "src": "/ihram-icon.svg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/hajj-icon.png",
+      "src": "/logo.svg",
       "sizes": "any",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
