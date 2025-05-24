@@ -1,27 +1,34 @@
-import HajjInfographic from "@/components/hajj-infographic"
+import UmrahInfographic from "@/components/umrah-infographic"
 import { MessageSquare } from "lucide-react"
 import Link from "next/link"
 
-export default function Home() {
+export default function UmrahPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="container mx-auto px-4 py-8">
-        {/* Link to Umrah Timeline */}
-        <div className="mb-8 p-6 bg-blue-50 rounded-lg border border-blue-200">
-          <h3 className="text-lg font-semibold text-blue-800 mb-2">Start with Umrah (Part of Hajj Tamattu)</h3>
-          <p className="text-blue-700 mb-4">
-            In Hajj Tamattu, pilgrims first perform Umrah, exit Ihram, and then re-enter Ihram on the 8th of Dhul-Hijjah
-            for Hajj. Learn about the Umrah rituals first to understand the complete journey.
-          </p>
-          <Link
-            href="/umrah"
-            className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Learn Umrah First →
+        {/* Navigation */}
+        <div className="mb-6">
+          <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+            ← Back to Hajj Guide
           </Link>
         </div>
 
-        <HajjInfographic />
+        <UmrahInfographic />
+
+        {/* Link to Hajj Timeline */}
+        <div className="mt-8 p-6 bg-emerald-50 rounded-lg border border-emerald-200">
+          <h3 className="text-lg font-semibold text-emerald-800 mb-2">Ready for Hajj?</h3>
+          <p className="text-emerald-700 mb-4">
+            After completing Umrah and exiting Ihram, you'll wait until the 8th of Dhul-Hijjah to begin the Hajj portion
+            of Hajj Tamattu.
+          </p>
+          <Link
+            href="/"
+            className="inline-flex items-center bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
+          >
+            Continue to Hajj Timeline →
+          </Link>
+        </div>
 
         {/* Contact footer */}
         <div className="border-t border-gray-200 p-4 text-center text-sm text-gray-600 bg-gray-50 mt-8 rounded-lg">
